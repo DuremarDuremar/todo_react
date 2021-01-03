@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import TodoHeader from "./components/todoHeader";
+import TodoAdd from "./components/todoAdd";
+import TodoList from "./components/todoList";
+import TodoSearch from "./components/todoSearch";
 
 const StyleApp = styled.div`
   position: relative;
+  color: #fff;
   background: -webkit-gradient(
     radial,
     center center,
@@ -64,8 +69,8 @@ const StyleApp = styled.div`
 `;
 
 const AppWrapper = styled.div`
+  text-align: center;
   min-width: 400px;
-  color: #fff;
   background: rgba(123, 145, 24, 1);
   background: -moz-linear-gradient(
     left,
@@ -115,7 +120,12 @@ const AppWrapper = styled.div`
 const App = () => {
   return (
     <StyleApp>
-      <AppWrapper>335555</AppWrapper>
+      <AppWrapper>
+        <TodoHeader />
+        <TodoSearch />
+        <TodoList />
+      </AppWrapper>
+      <TodoAdd />
     </StyleApp>
   );
 };
