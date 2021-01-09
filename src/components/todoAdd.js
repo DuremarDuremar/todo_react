@@ -9,8 +9,10 @@ const StyleAdd = styled.div`
   }
   input {
     font-size: 20px;
+    border-radius: 10px;
   }
   button {
+    margin-left: 3px;
     width: 40px;
     height: 40px;
     border-radius: 30%;

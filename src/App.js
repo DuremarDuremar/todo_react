@@ -6,8 +6,23 @@ import TodoList from "./components/todoList";
 import TodoSearch from "./components/todoSearch";
 
 const StyleApp = styled.div`
+  * {
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  ul li {
+    list-style: none;
+  }
+
+  button {
+    cursor: pointer;
+  }
   position: relative;
-  color: #fff;
   background: -webkit-gradient(
     radial,
     center center,
