@@ -142,7 +142,7 @@ const App = () => {
         <TodoSearch />
         <TodoList text={text} />
       </AppWrapper>
-      <TodoAdd text={text} setText={setText} />
+      <TodoAdd setText={setText} />
     </StyleApp>
   );
 };

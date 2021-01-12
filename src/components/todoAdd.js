@@ -19,14 +19,22 @@ const StyleAdd = styled.div`
   }
 `;
 
-const TodoAdd = ({ text, setText }) => {
+const TodoAdd = ({ setText }) => {
+  const [addValue, setAddValue] = useState("");
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    setText(addValue);
+    setAddValue("");
+  };
+
   return (
     <StyleAdd>
-      <form action="">
+      <form onSubmit={onSubmit}>
         <input
           type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={addValue}
+          onChange={(e) => setAddValue(e.target.value)}
         />
         <button>
           <i className="far fa-bell fa-2x"></i>

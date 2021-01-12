@@ -18,13 +18,11 @@ const StyleList = styled.div`
     margin-right: -35px;
   }
   button {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     border-radius: 27%;
     &:last-child {
       margin-left: -25px;
-    }
-    i {
     }
   }
 `;
