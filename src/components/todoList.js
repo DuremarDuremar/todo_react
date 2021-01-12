@@ -7,8 +7,11 @@ const StyleList = styled.div`
     justify-content: space-around;
     margin-left: 55px;
     margin-top: 30px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     word-wrap: break-word;
+    &:last-child {
+      margin-bottom: 60px;
+    }
   }
   .list_name {
     max-width: 140px;
@@ -17,28 +20,36 @@ const StyleList = styled.div`
   .list_number {
     margin-right: -35px;
   }
-  button {
+  p {
     width: 30px;
     height: 30px;
     border-radius: 27%;
+    cursor: pointer;
+
     &:last-child {
       margin-left: -25px;
+    }
+    &:hover {
+      color: #fff;
     }
   }
 `;
 
-const TodoList = ({ data }) => {
+const TodoList = ({ data, deleteItem }) => {
   const elements = data.map((item, index) => {
     return (
       <div className="list_string" key={index}>
         <div className="list_number">{index + 1}</div>
         <div className="list_name">{item.label}</div>
-        <button>
-          <i className="far fa-bell-slash"></i>
-        </button>
-        <button>
+        <p>
+          <i
+            className="far fa-bell-slash"
+            onClick={() => deleteItem(item.id)}
+          ></i>
+        </p>
+        <p>
           <i className="fas fa-exclamation"></i>
-        </button>
+        </p>
       </div>
     );
   });

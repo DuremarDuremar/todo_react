@@ -134,13 +134,17 @@ const AppWrapper = styled.div`
 
 const App = () => {
   const [data, setData] = useState([
-    { label: "ffffgghh" },
-    { label: "jjjgggjgjg" },
-    { label: "kfjfjfhghg" },
+    { label: "ffffgghh", id: "23444" },
+    { label: "jjjgggjgjg", id: "55666" },
+    { label: "kfjfjfhghg", id: "757589696" },
   ]);
 
+  const deleteItem = (id) => {
+    setData(data.filter((item) => item.id !== id));
+  };
+
   const dataAdd = (item) => {
-    setData([...data, { label: item }]);
+    setData([...data, { label: item, id: Date.now().toString() }]);
   };
 
   return (
@@ -148,7 +152,7 @@ const App = () => {
       <AppWrapper>
         <TodoHeader />
         <TodoSearch />
-        <TodoList data={data} />
+        <TodoList data={data} deleteItem={deleteItem} />
       </AppWrapper>
       <TodoAdd dataAdd={dataAdd} />
     </StyleApp>
