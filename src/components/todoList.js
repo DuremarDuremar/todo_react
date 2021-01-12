@@ -35,19 +35,17 @@ const StyleList = styled.div`
   }
 `;
 
-const TodoList = ({ data, deleteItem }) => {
+const TodoList = ({ data, deleteItem, importantItem }) => {
   const elements = data.map((item, index) => {
+    console.log(item);
     return (
       <div className="list_string" key={index}>
         <div className="list_number">{index + 1}</div>
         <div className="list_name">{item.label}</div>
-        <p>
-          <i
-            className="far fa-bell-slash"
-            onClick={() => deleteItem(item.id)}
-          ></i>
+        <p onClick={() => deleteItem(item.id)}>
+          <i className="far fa-bell-slash"></i>
         </p>
-        <p>
+        <p onClick={() => importantItem(item.id)}>
           <i className="fas fa-exclamation"></i>
         </p>
       </div>
