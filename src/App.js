@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import TodoHeader from "./components/todoHeader";
 import TodoAdd from "./components/todoAdd";
@@ -133,14 +133,16 @@ const AppWrapper = styled.div`
 `;
 
 const App = () => {
+  const [text, setText] = useState(55);
+
   return (
     <StyleApp>
       <AppWrapper>
         <TodoHeader />
         <TodoSearch />
-        <TodoList />
+        <TodoList text={text} />
       </AppWrapper>
-      <TodoAdd />
+      <TodoAdd text={text} setText={setText} />
     </StyleApp>
   );
 };

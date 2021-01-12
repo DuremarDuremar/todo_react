@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const StyleAdd = styled.div`
@@ -19,11 +19,15 @@ const StyleAdd = styled.div`
   }
 `;
 
-const TodoAdd = () => {
+const TodoAdd = ({ text, setText }) => {
   return (
     <StyleAdd>
       <form action="">
-        <input type="text" />
+        <input
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
         <button>
           <i className="far fa-bell fa-2x"></i>
         </button>
