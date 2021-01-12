@@ -7,7 +7,7 @@ const StyleList = styled.div`
     justify-content: space-around;
     margin-left: 55px;
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
     word-wrap: break-word;
   }
   .list_name {
@@ -27,12 +27,12 @@ const StyleList = styled.div`
   }
 `;
 
-const TodoList = ({ text }) => {
-  return (
-    <StyleList>
-      <div className="list_string">
-        <div className="list_number">1</div>
-        <div className="list_name">{text}</div>
+const TodoList = ({ data }) => {
+  const elements = data.map((item, index) => {
+    return (
+      <div className="list_string" key={index}>
+        <div className="list_number">{index + 1}</div>
+        <div className="list_name">{item.label}</div>
         <button>
           <i className="far fa-bell-slash"></i>
         </button>
@@ -40,6 +40,12 @@ const TodoList = ({ text }) => {
           <i className="fas fa-exclamation"></i>
         </button>
       </div>
+    );
+  });
+
+  return (
+    <StyleList>
+      <div>{elements}</div>
     </StyleList>
   );
 };

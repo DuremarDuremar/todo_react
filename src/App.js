@@ -133,16 +133,24 @@ const AppWrapper = styled.div`
 `;
 
 const App = () => {
-  const [text, setText] = useState(55);
+  const [data, setData] = useState([
+    { label: "ffffgghh" },
+    { label: "jjjgggjgjg" },
+    { label: "kfjfjfhghg" },
+  ]);
+
+  const dataAdd = (item) => {
+    setData([...data, { label: item }]);
+  };
 
   return (
     <StyleApp>
       <AppWrapper>
         <TodoHeader />
         <TodoSearch />
-        <TodoList text={text} />
+        <TodoList data={data} />
       </AppWrapper>
-      <TodoAdd setText={setText} />
+      <TodoAdd dataAdd={dataAdd} />
     </StyleApp>
   );
 };

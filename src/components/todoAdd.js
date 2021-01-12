@@ -19,12 +19,12 @@ const StyleAdd = styled.div`
   }
 `;
 
-const TodoAdd = ({ setText }) => {
+const TodoAdd = ({ dataAdd }) => {
   const [addValue, setAddValue] = useState("");
 
   const onSubmit = (event) => {
     event.preventDefault();
-    setText(addValue);
+    dataAdd(addValue);
     setAddValue("");
   };
 
