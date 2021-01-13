@@ -15,6 +15,8 @@ const StyleList = styled.div`
   }
   .list_name {
     max-width: 140px;
+    font-size: 16px;
+    cursor: pointer;
   }
 
   .list_number {
@@ -34,23 +36,29 @@ const StyleList = styled.div`
     }
   }
 
+  .list_done {
+    text-decoration: line-through;
+    text-decoration-color: #fff;
+  }
+
   .list_important {
-    border-bottom: 3px solid #8b0000;
+    color: #8b0000;
+    font-size: 20px;
   }
 `;
 
-const TodoList = ({ data, deleteItem, importantItem }) => {
+const TodoList = ({ data, deleteItem, importantItem, doneItem }) => {
   const elements = data.map((item, index) => {
     console.log(item);
 
-    // const importantClass =
+    const classImportant = item.important ? " list_important" : " ";
+    const classDone = item.done ? " list_done" : " ";
+    const classLabel = "list_name" + classImportant + classDone;
 
     return (
       <div className="list_string" key={index}>
         <div className="list_number">{index + 1}</div>
-        <div
-          className={item.important ? "list_name list_important" : "list_name"}
-        >
+        <div className={classLabel} onClick={() => doneItem(item.id)}>
           {item.label}
         </div>
         <p onClick={() => deleteItem(item.id)}>

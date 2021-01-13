@@ -154,6 +154,17 @@ const App = () => {
     );
   };
 
+  const doneItem = (id) => {
+    setData(
+      data.map((item) => {
+        if (item.id === id) {
+          item.done = !item.done;
+        }
+        return item;
+      })
+    );
+  };
+
   const dataAdd = (item) => {
     setData([
       ...data,
@@ -170,6 +181,7 @@ const App = () => {
           data={data}
           deleteItem={deleteItem}
           importantItem={importantItem}
+          doneItem={doneItem}
         />
       </AppWrapper>
       <TodoAdd dataAdd={dataAdd} />
