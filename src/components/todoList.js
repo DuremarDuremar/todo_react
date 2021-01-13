@@ -49,8 +49,6 @@ const StyleList = styled.div`
 
 const TodoList = ({ data, deleteItem, importantItem, doneItem }) => {
   const elements = data.map((item, index) => {
-    console.log(item);
-
     const classImportant = item.important ? " list_important" : " ";
     const classDone = item.done ? " list_done" : " ";
     const classLabel = "list_name" + classImportant + classDone;
