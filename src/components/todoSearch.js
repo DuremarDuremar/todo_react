@@ -24,7 +24,7 @@ const StyleSearch = styled.div`
   }
 `;
 
-const TodoSearch = () => {
+const TodoSearch = ({ setActive }) => {
   const [btn, setBtn] = useState([
     { id: "all", class: "btn_active" },
     { id: "active", class: "" },
@@ -42,6 +42,7 @@ const TodoSearch = () => {
         return item;
       })
     );
+    setActive(id);
   };
 
   return (

@@ -139,6 +139,8 @@ const App = () => {
     { label: "kfjfjfhghg", id: "757589696", done: false, important: false },
   ]);
 
+  const [activeData, setActive] = useState("all");
+
   const deleteItem = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
@@ -172,13 +174,23 @@ const App = () => {
     ]);
   };
 
+  const dataFilter = (activeData) => {
+    if (activeData === "active") {
+      console.log(data.filter((item) => !item.done));
+      return data.filter((item) => !item.done);
+    } else if (activeData === "done") {
+      console.log(data.filter((item) => item.done));
+      return data.filter((item) => item.done);
+    } else return data;
+  };
+
   return (
     <StyleApp>
       <AppWrapper>
         <TodoHeader />
-        <TodoSearch />
+        <TodoSearch setActive={setActive} />
         <TodoList
-          data={data}
+          data={dataFilter(activeData)}
           deleteItem={deleteItem}
           importantItem={importantItem}
           doneItem={doneItem}
