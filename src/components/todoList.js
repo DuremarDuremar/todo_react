@@ -33,15 +33,26 @@ const StyleList = styled.div`
       color: #fff;
     }
   }
+
+  .list_important {
+    border-bottom: 3px solid #8b0000;
+  }
 `;
 
 const TodoList = ({ data, deleteItem, importantItem }) => {
   const elements = data.map((item, index) => {
     console.log(item);
+
+    // const importantClass =
+
     return (
       <div className="list_string" key={index}>
         <div className="list_number">{index + 1}</div>
-        <div className="list_name">{item.label}</div>
+        <div
+          className={item.important ? "list_name list_important" : "list_name"}
+        >
+          {item.label}
+        </div>
         <p onClick={() => deleteItem(item.id)}>
           <i className="far fa-bell-slash"></i>
         </p>
