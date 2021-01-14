@@ -14,11 +14,15 @@ const StyleHeader = styled.div`
   }
 `;
 
-const TodoHeader = () => {
+const TodoHeader = ({ data }) => {
+  const noDone = data.filter((item) => !item.done);
+
   return (
     <StyleHeader>
       <h2>Todo List</h2>
-      <h4>1 more to do, 0 done</h4>
+      <h4>
+        {noDone.length} more to do, {data.length - noDone.length} done
+      </h4>
     </StyleHeader>
   );
 };

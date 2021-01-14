@@ -187,7 +187,7 @@ const App = () => {
   return (
     <StyleApp>
       <AppWrapper>
-        <TodoHeader />
+        <TodoHeader data={data} />
         <TodoSearch setActive={setActive} />
         <TodoList
           data={dataFilter(activeData)}
