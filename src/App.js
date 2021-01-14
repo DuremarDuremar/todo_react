@@ -190,7 +190,7 @@ const App = () => {
     <StyleApp>
       <AppWrapper>
         <TodoHeader data={data} />
-        <TodoSearch setActive={setActive} />
+        <TodoSearch setActive={setActive} data={dataFilter(activeData)} />
         <TodoList
           data={dataFilter(activeData)}
           deleteItem={deleteItem}

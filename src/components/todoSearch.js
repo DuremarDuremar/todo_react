@@ -18,18 +18,24 @@ const StyleSearch = styled.div`
   input {
     font-size: 20px;
     border-radius: 10px;
+    outline: none;
+    padding: 2px 0px 2px 5px;
   }
   .btn_active {
     border: 3px solid #b71540;
   }
 `;
 
-const TodoSearch = ({ setActive }) => {
+const TodoSearch = ({ setActive, data }) => {
   const [btn, setBtn] = useState([
     { id: "all", class: "btn_active" },
     { id: "active", class: "" },
     { id: "done", class: "" },
   ]);
+
+  const [searchValue, setSearchValue] = useState("");
+
+  console.log(searchValue);
 
   const onBtn = (id) => {
     setBtn(
@@ -70,7 +76,15 @@ const TodoSearch = ({ setActive }) => {
           <i className="fas fa-bookmark fa-2x"></i>
         </button>
       </div>
-      <input type="text" />
+      {data.length > 0 ? (
+        <input
+          type="text"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+      ) : (
+        <p>none</p>
+      )}
     </StyleSearch>
   );
 };

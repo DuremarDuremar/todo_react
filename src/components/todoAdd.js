@@ -12,6 +12,7 @@ const StyleAdd = styled.div`
     font-size: 20px;
     border-radius: 10px;
     outline: none;
+    padding: 2px 0px 2px 5px;
   }
   button {
     margin-left: 3px;
