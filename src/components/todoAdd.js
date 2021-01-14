@@ -3,19 +3,25 @@ import styled from "styled-components";
 
 const StyleAdd = styled.div`
   position: absolute;
-  bottom: 15px;
+  bottom: -10px;
+  right: -10px;
   form {
     align-items: center;
   }
   input {
     font-size: 20px;
     border-radius: 10px;
+    outline: none;
   }
   button {
     margin-left: 3px;
     width: 40px;
     height: 40px;
     border-radius: 30%;
+    outline: none;
+    &:hover {
+      color: #b71540;
+    }
   }
 `;
 
@@ -24,8 +30,12 @@ const TodoAdd = ({ dataAdd }) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    dataAdd(addValue);
-    setAddValue("");
+    if (addValue.length > 0) {
+      dataAdd(addValue);
+      setAddValue("");
+    } else {
+      return;
+    }
   };
 
   return (

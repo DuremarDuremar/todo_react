@@ -130,6 +130,8 @@ const AppWrapper = styled.div`
   -webkit-border-radius: 42px 42px 0px 200px;
   border: 6px solid #453138;
   padding-left: 10px;
+  margin: 30px 0;
+  position: relative;
 `;
 
 const App = () => {
@@ -195,8 +197,8 @@ const App = () => {
           importantItem={importantItem}
           doneItem={doneItem}
         />
+        <TodoAdd dataAdd={dataAdd} />
       </AppWrapper>
-      <TodoAdd dataAdd={dataAdd} />
     </StyleApp>
   );
 };
