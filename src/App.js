@@ -142,6 +142,7 @@ const App = () => {
   ]);
 
   const [activeData, setActive] = useState("all");
+  const [searchValue, setSearchValue] = useState("");
 
   const deleteItem = (id) => {
     setData(data.filter((item) => item.id !== id));
@@ -190,9 +191,15 @@ const App = () => {
     <StyleApp>
       <AppWrapper>
         <TodoHeader data={data} />
-        <TodoSearch setActive={setActive} data={dataFilter(activeData)} />
+        <TodoSearch
+          setActive={setActive}
+          data={dataFilter(activeData)}
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+        />
         <TodoList
           data={dataFilter(activeData)}
+          setSearchValue
           deleteItem={deleteItem}
           importantItem={importantItem}
           doneItem={doneItem}
