@@ -4,6 +4,7 @@ import TodoHeader from "./components/todoHeader";
 import TodoAdd from "./components/todoAdd";
 import TodoList from "./components/todoList";
 import TodoSearch from "./components/todoSearch";
+import { useMediaQuery } from "react-responsive";
 
 const StyleApp = styled.div`
   * {
@@ -77,10 +78,11 @@ const StyleApp = styled.div`
   );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d1c19', endColorstr='#1f1c1c', GradientType=1 );
   min-height: 100vh;
-  min-width: 100vh;
+  /* min-width: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
 `;
 
 const AppWrapper = styled.div`
@@ -134,6 +136,57 @@ const AppWrapper = styled.div`
   position: relative;
 `;
 
+const AppWrapper500 = styled.div`
+  text-align: center;
+  min-width: 300px;
+  background: rgba(123, 145, 24, 1);
+  background: -moz-linear-gradient(
+    left,
+    rgba(123, 145, 24, 1) 0%,
+    rgba(59, 64, 36, 1) 94%,
+    rgba(56, 60, 37, 1) 99%
+  );
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(123, 145, 24, 1)),
+    color-stop(94%, rgba(59, 64, 36, 1)),
+    color-stop(99%, rgba(56, 60, 37, 1))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(123, 145, 24, 1) 0%,
+    rgba(59, 64, 36, 1) 94%,
+    rgba(56, 60, 37, 1) 99%
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba(123, 145, 24, 1) 0%,
+    rgba(59, 64, 36, 1) 94%,
+    rgba(56, 60, 37, 1) 99%
+  );
+  background: -ms-linear-gradient(
+    left,
+    rgba(123, 145, 24, 1) 0%,
+    rgba(59, 64, 36, 1) 94%,
+    rgba(56, 60, 37, 1) 99%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(123, 145, 24, 1) 0%,
+    rgba(59, 64, 36, 1) 94%,
+    rgba(56, 60, 37, 1) 99%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7b9118', endColorstr='#383c25', GradientType=1 );
+  border-radius: 42px 42px 0px 200px;
+  -moz-border-radius: 42px 42px 0px 200px;
+  -webkit-border-radius: 42px 42px 0px 200px;
+  border: 4px solid #453138;
+  padding-left: 6px;
+  margin: 20px 0;
+  position: relative;
+`;
+
 const App = () => {
   const [data, setData] = useState(() => {
     const initialState1 = JSON.parse(localStorage.getItem("dataTodo"));
@@ -181,7 +234,9 @@ const App = () => {
     setView(search(data, searchValue));
   }, [data, searchValue, setView]);
 
-  console.log("data", data);
+  const a500 = useMediaQuery({ query: "(min-width: 500px)" });
+
+  console.log(a500);
 
   function search(items, term) {
     if (!items) {
