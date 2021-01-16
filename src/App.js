@@ -135,20 +135,53 @@ const AppWrapper = styled.div`
 `;
 
 const App = () => {
-  const [data, setData] = useState([
-    { label: "ffffgghh", id: "23444", done: false, important: false },
-    { label: "jjjgggjgjg", id: "55666", done: false, important: false },
-    { label: "kfjfjfhghg", id: "757589696", done: false, important: false },
-  ]);
+  const [data, setData] = useState(() => {
+    const initialState1 = JSON.parse(localStorage.getItem("dataTodo"));
+    const initialState2 = [
+      { label: "drink coffee", id: "23444", done: false, important: true },
+      {
+        label: "drink coffee again",
+        id: "55666",
+        done: false,
+        important: false,
+      },
+      {
+        label: "sleep and drink coffee",
+        id: "757589696",
+        done: false,
+        important: false,
+      },
+    ];
+
+    if (initialState1.length > 0) {
+      return initialState1;
+    } else {
+      return initialState2;
+    }
+  });
 
   const [view, setView] = useState(data);
 
   const [activeData, setActive] = useState("all");
   const [searchValue, setSearchValue] = useState("");
 
+  //localStorage
+  // useEffect(() => {
+  //   const localTodo = localStorage.getItem("dataTodo") || "[]";
+  //   console.log("localTodo", JSON.parse(localTodo));
+  //   setData(JSON.parse(localTodo));
+  // }, []);
+
+  useEffect(() => {
+    localStorage.setItem("dataTodo", JSON.stringify(data));
+  }, [data]);
+  //
+
   useEffect(() => {
     setView(search(data, searchValue));
   }, [data, searchValue, setView]);
+
+  console.log("data", data);
 
   function search(items, term) {
     if (!items) {
@@ -199,10 +232,8 @@ const App = () => {
 
   const dataFilter = (activeData) => {
     if (activeData === "active") {
-      console.log(view.filter((item) => !item.done));
       return view.filter((item) => !item.done);
     } else if (activeData === "done") {
-      console.log(view.filter((item) => item.done));
       return view.filter((item) => item.done);
     } else return view;
   };

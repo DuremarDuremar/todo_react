@@ -53,6 +53,8 @@ const TodoList = ({ data, deleteItem, importantItem, doneItem }) => {
     const classDone = item.done ? " list_done" : " ";
     const classLabel = "list_name" + classImportant + classDone;
 
+    // console.log("list", data);
+
     return (
       <div className="list_string" key={index}>
         <div className="list_number">{index + 1}</div>
