@@ -213,7 +213,7 @@ const App = () => {
         <TodoHeader data={data} />
         <TodoSearch
           setActive={setActive}
-          data={dataFilter(activeData)}
+          data={data}
           searchValue={searchValue}
           setSearchValue={setSearchValue}
         />

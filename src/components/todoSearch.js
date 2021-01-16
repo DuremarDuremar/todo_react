@@ -24,6 +24,9 @@ const StyleSearch = styled.div`
   .btn_active {
     border: 3px solid #b71540;
   }
+  .todo_p {
+    margin-bottom: 5px;
+  }
 `;
 
 const TodoSearch = ({ setActive, data, setSearchValue, searchValue }) => {
@@ -73,13 +76,16 @@ const TodoSearch = ({ setActive, data, setSearchValue, searchValue }) => {
         </button>
       </div>
       {data.length > 0 ? (
-        <input
-          type="text"
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
+        <>
+          <input
+            type="text"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+          <p className="todo_p">____________________</p>
+        </>
       ) : (
-        <p>none</p>
+        <p className="todo_p">____________________</p>
       )}
     </StyleSearch>
   );
