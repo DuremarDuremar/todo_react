@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import TodoHeader from "./components/todoHeader";
 import TodoAdd from "./components/todoAdd";
@@ -141,8 +141,28 @@ const App = () => {
     { label: "kfjfjfhghg", id: "757589696", done: false, important: false },
   ]);
 
+  const [view, setView] = useState(data);
+
   const [activeData, setActive] = useState("all");
   const [searchValue, setSearchValue] = useState("");
+
+  useEffect(() => {
+    setView(search(data, searchValue));
+  }, [data, searchValue, setView]);
+
+  function search(items, term) {
+    if (!items) {
+      return null;
+    }
+
+    if (term.length === 0) {
+      return items;
+    }
+
+    return items.filter((item) => {
+      return item.label.toLowerCase().indexOf(term.toLowerCase()) > -1;
+    });
+  }
 
   const deleteItem = (id) => {
     setData(data.filter((item) => item.id !== id));
@@ -179,12 +199,12 @@ const App = () => {
 
   const dataFilter = (activeData) => {
     if (activeData === "active") {
-      console.log(data.filter((item) => !item.done));
-      return data.filter((item) => !item.done);
+      console.log(view.filter((item) => !item.done));
+      return view.filter((item) => !item.done);
     } else if (activeData === "done") {
-      console.log(data.filter((item) => item.done));
-      return data.filter((item) => item.done);
-    } else return data;
+      console.log(view.filter((item) => item.done));
+      return view.filter((item) => item.done);
+    } else return view;
   };
 
   return (

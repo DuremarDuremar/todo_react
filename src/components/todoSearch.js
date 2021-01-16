@@ -33,8 +33,6 @@ const TodoSearch = ({ setActive, data, setSearchValue, searchValue }) => {
     { id: "done", class: "" },
   ]);
 
-  console.log(searchValue);
-
   const onBtn = (id) => {
     setBtn(
       btn.map((item) => {
