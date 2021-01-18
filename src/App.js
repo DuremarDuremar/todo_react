@@ -236,8 +236,6 @@ const App = () => {
 
   const a500 = useMediaQuery({ query: "(min-width: 500px)" });
 
-  console.log(a500);
-
   function search(items, term) {
     if (!items) {
       return null;
@@ -293,9 +291,9 @@ const App = () => {
     } else return view;
   };
 
-  return (
-    <StyleApp>
-      <AppWrapper>
+  const contentApp = () => {
+    return (
+      <>
         <TodoHeader data={data} />
         <TodoSearch
           setActive={setActive}
@@ -311,7 +309,17 @@ const App = () => {
           doneItem={doneItem}
         />
         <TodoAdd dataAdd={dataAdd} />
-      </AppWrapper>
+      </>
+    );
+  };
+
+  return (
+    <StyleApp>
+      {a500 ? (
+        <AppWrapper>{contentApp()}</AppWrapper>
+      ) : (
+        <AppWrapper500>{contentApp()}</AppWrapper500>
+      )}
     </StyleApp>
   );
 };
