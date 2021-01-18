@@ -4,7 +4,7 @@ import styled from "styled-components";
 const StyleAdd = styled.div`
   position: absolute;
   bottom: -10px;
-  right: -10px;
+  right: -5px;
   form {
     align-items: center;
   }
