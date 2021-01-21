@@ -3,7 +3,6 @@ import { chunk, reverse } from "lodash";
 import styled from "styled-components";
 
 const StyleList = styled.div`
-  background-color: gray;
   margin-bottom: 10px;
   .list_string {
     display: flex;
@@ -50,7 +49,6 @@ const StyleList = styled.div`
     font-size: 20px;
   }
   .list_pagination {
-    background-color: red;
     display: flex;
     justify-content: center;
     font-family: "Courier New";

@@ -279,7 +279,12 @@ const App = () => {
   const dataAdd = (item) => {
     setData([
       ...data,
-      { label: item, id: Date.now().toString(), done: false, important: false },
+      {
+        label: item,
+        id: Date.now().toString(),
+        done: false,
+        important: false,
+      },
     ]);
   };
 
