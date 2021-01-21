@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const StyleList = styled.div`
   background-color: gray;
-  margin: 15px 0 25px 0;
+  margin-bottom: 10px;
   .list_string {
     display: flex;
     justify-content: space-around;
@@ -12,8 +12,9 @@ const StyleList = styled.div`
     margin-top: 30px;
     margin-bottom: 20px;
     word-wrap: break-word;
+    font-family: Consolas;
     &:last-child {
-      margin-bottom: 60px;
+      margin-bottom: 30px;
     }
   }
   .list_name {
@@ -52,6 +53,7 @@ const StyleList = styled.div`
     background-color: red;
     display: flex;
     justify-content: center;
+    font-family: "Courier New";
     p {
       &:not(first-child) {
         margin-left: 2px;
@@ -69,12 +71,10 @@ const TodoList = ({ data, deleteItem, importantItem, doneItem }) => {
   }, [data]);
 
   console.log(allPage);
-  const elements = data.map((item, index) => {
+  const elements = chunk(data, 6)[page].map((item, index) => {
     const classImportant = item.important ? " list_important" : " ";
     const classDone = item.done ? " list_done" : " ";
     const classLabel = "list_name" + classImportant + classDone;
-
-    // console.log("list", data);
 
     return (
       <div className="list_string" key={index}>
@@ -98,7 +98,9 @@ const TodoList = ({ data, deleteItem, importantItem, doneItem }) => {
       <div className="list_pagination">
         {allPage &&
           allPage.map((item, indexPage) => (
-            <p key={indexPage}>{indexPage + 1}</p>
+            <p key={indexPage} onClick={() => setPage(indexPage)}>
+              {indexPage + 1}
+            </p>
           ))}
       </div>
     </StyleList>
