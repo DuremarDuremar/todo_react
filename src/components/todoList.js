@@ -15,6 +15,19 @@ const StyleList = styled.div`
     &:last-child {
       margin-bottom: 30px;
     }
+    p {
+      width: 30px;
+      height: 30px;
+      border-radius: 27%;
+      cursor: pointer;
+
+      &:last-child {
+        margin-left: -25px;
+      }
+      &:hover {
+        color: #fff;
+      }
+    }
   }
   .list_name {
     max-width: 140px;
@@ -24,19 +37,6 @@ const StyleList = styled.div`
 
   .list_number {
     margin-right: -35px;
-  }
-  p {
-    width: 30px;
-    height: 30px;
-    border-radius: 27%;
-    cursor: pointer;
-
-    &:last-child {
-      margin-left: -25px;
-    }
-    &:hover {
-      color: #fff;
-    }
   }
 
   .list_done {
@@ -52,11 +52,19 @@ const StyleList = styled.div`
     display: flex;
     justify-content: center;
     font-family: "Courier New";
-    margin-bottom: 3px;
+    margin-bottom: 25px;
     p {
+      cursor: pointer;
+      font-size: 18px;
+      padding: 5px;
       &:not(first-child) {
-        margin-left: 2px;
+        margin-left: 15px;
       }
+    }
+    .pagAc {
+      color: #8b0000;
+      border: 1px solid black;
+      border-radius: 75%;
     }
   }
 `;
@@ -98,7 +106,11 @@ const TodoList = ({ data, deleteItem, importantItem, doneItem }) => {
       <div className="list_pagination">
         {allPage &&
           allPage.map((item, indexPage) => (
-            <p key={indexPage} onClick={() => setPage(indexPage)}>
+            <p
+              key={indexPage}
+              onClick={() => setPage(indexPage)}
+              className={page === indexPage ? "pagAc" : ""}
+            >
               {indexPage + 1}
             </p>
           ))}
