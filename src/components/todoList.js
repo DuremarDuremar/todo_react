@@ -52,6 +52,7 @@ const StyleList = styled.div`
     display: flex;
     justify-content: center;
     font-family: "Courier New";
+    margin-bottom: 3px;
     p {
       &:not(first-child) {
         margin-left: 2px;
@@ -68,12 +69,8 @@ const TodoList = ({ data, deleteItem, importantItem, doneItem }) => {
     setAllPage(chunk(data, 6));
   }, [data]);
 
-  // let dataReverse = reverse(data);
-  // console.log("data", data);
-  // console.log("dataReverse", reverse(data));
-
   const data2 = chunk(data, 6)[page] || data;
-
+  reverse(data);
   const elements = data2.map((item, index) => {
     const classImportant = item.important ? " list_important" : " ";
     const classDone = item.done ? " list_done" : " ";
