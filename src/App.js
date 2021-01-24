@@ -191,7 +191,12 @@ const App = () => {
   const [data, setData] = useState(() => {
     const initialState1 = JSON.parse(localStorage.getItem("dataTodo"));
     const initialState2 = [
-      { label: "drink coffee", id: "23444", done: false, important: true },
+      {
+        label: "sleep and drink coffee",
+        id: "23444",
+        done: false,
+        important: true,
+      },
       {
         label: "drink coffee again",
         id: "55666",
@@ -199,7 +204,7 @@ const App = () => {
         important: false,
       },
       {
-        label: "sleep and drink coffee",
+        label: "drink coffee",
         id: "757589696",
         done: false,
         important: false,
@@ -278,13 +283,13 @@ const App = () => {
 
   const dataAdd = (item) => {
     setData([
-      ...data,
       {
         label: item,
         id: Date.now().toString(),
         done: false,
         important: false,
       },
+      ...data,
     ]);
   };
 

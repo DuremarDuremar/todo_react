@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { chunk, reverse } from "lodash";
+import { chunk } from "lodash";
 import styled from "styled-components";
 
 const StyleList = styled.div`
@@ -78,7 +78,6 @@ const TodoList = ({ data, deleteItem, importantItem, doneItem }) => {
   }, [data]);
 
   const data2 = chunk(data, 6)[page] || data;
-  reverse(data);
   const elements = data2.map((item, index) => {
     const classImportant = item.important ? " list_important" : " ";
     const classDone = item.done ? " list_done" : " ";
