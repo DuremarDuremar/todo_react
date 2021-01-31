@@ -88,8 +88,44 @@ const StyleApp = styled.div`
 const AppWrapper = styled.div`
   text-align: center;
   min-width: 400px;
-  background: #fff;
-
+  background: rgba(123, 145, 24, 1);
+  background: -moz-linear-gradient(
+    left,
+    rgba(123, 145, 24, 1) 0%,
+    rgba(59, 64, 36, 1) 94%,
+    rgba(56, 60, 37, 1) 99%
+  );
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(123, 145, 24, 1)),
+    color-stop(94%, rgba(59, 64, 36, 1)),
+    color-stop(99%, rgba(56, 60, 37, 1))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(123, 145, 24, 1) 0%,
+    rgba(59, 64, 36, 1) 94%,
+    rgba(56, 60, 37, 1) 99%
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba(123, 145, 24, 1) 0%,
+    rgba(59, 64, 36, 1) 94%,
+    rgba(56, 60, 37, 1) 99%
+  );
+  background: -ms-linear-gradient(
+    left,
+    rgba(123, 145, 24, 1) 0%,
+    rgba(59, 64, 36, 1) 94%,
+    rgba(56, 60, 37, 1) 99%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(123, 145, 24, 1) 0%,
+    rgba(59, 64, 36, 1) 94%,
+    rgba(56, 60, 37, 1) 99%
+  );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7b9118', endColorstr='#383c25', GradientType=1 );
   border-radius: 42px 42px 0px 200px;
   -moz-border-radius: 42px 42px 0px 200px;
